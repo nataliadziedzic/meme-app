@@ -4,7 +4,10 @@ export const StyledHeader = styled.header`
     width: 100%;
     padding: 16px 24px;
     background-color: #173e55;
-    color: #fff;
+    margin-bottom: 56px;
+    * {
+        color: #fff;
+    }
     nav {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -13,7 +16,7 @@ export const StyledHeader = styled.header`
     }
     .navText {
         font-size: 1.5rem;
-        font-weight: light;
+        font-weight: 300;
     }
     a {
         position: relative;
@@ -35,6 +38,7 @@ export const StyledHeader = styled.header`
         left: 0; 
     }
     .active {
+        font-weight: 400;
         :after { 
             content: none; 
         }
