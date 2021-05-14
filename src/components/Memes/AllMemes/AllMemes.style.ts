@@ -5,5 +5,5 @@ export const MemesContainer = styled.section`
     max-width: 900px;
     margin: 0 auto;
     padding: 16px 56px;
-    background-color: #fff;
+    background-color: ${props => props.theme.memesContainer};
 `

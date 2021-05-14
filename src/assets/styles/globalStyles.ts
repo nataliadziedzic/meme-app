@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     text-decoration: none;
-    color: #000;
+    color: ${ props => props.theme.font};
   }
   html {
     font-size: 16px;
@@ -16,7 +16,7 @@ export const GlobalStyle = createGlobalStyle`
   body{
     min-height: 100vh;
     width: 100vw;
-    background-color: ${({ theme }) => theme.body};
+    background-color: ${ props => props.theme.body};
   }
   .App, #root {
     height: 100%;

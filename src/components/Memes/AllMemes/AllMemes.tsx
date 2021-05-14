@@ -1,7 +1,7 @@
 import * as React from 'react';
 import SingleMeme from '../SingleMeme/SingleMeme';
 import { MemesContainer } from './AllMemes.style';
-import {memes} from '../../data/memes'
+import {memes} from '../../../data/memes'
 
 export interface AllMemesProps {
     

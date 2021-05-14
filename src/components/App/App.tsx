@@ -6,7 +6,7 @@ import { StylesProvider } from '@material-ui/core'
 import { lightTheme, darkTheme } from '../../assets/styles/theme'
 import Header from '../Header/Header';
 import { GlobalStyle } from '../../assets/styles/globalStyles';
-import AllMemes from '../AllMemes/AllMemes';
+import AllMemes from '../Memes/AllMemes/AllMemes';
 
 const App: React.FC = () => {
   const theme = useAppSelector(state => state.themeReducer)
