@@ -9,8 +9,10 @@ export interface AllMemesProps {}
 
 const AllMemes: React.FC<AllMemesProps> = () => {
   const history = useHistory();
-  const { pageNumber } = useParams<{ pageNumber: string }>();
+  const { pageNumber, chosenMemes } =
+    useParams<{ pageNumber: string; chosenMemes: string }>();
 
+  const [availableMemes, setAvailableMemes] = React.useState<typeof memes>([]);
   const [slicedMemes, setSlicedMemes] = React.useState<typeof memes>([]);
   const [page, setPage] = React.useState<number>(1);
   const memesPerPage = 10;
@@ -18,20 +20,24 @@ const AllMemes: React.FC<AllMemesProps> = () => {
   const changePage = (currentPage: number) => {
     history.push(`${currentPage}`);
     setPage(currentPage);
+    const indexOfLastMeme = currentPage * memesPerPage;
+    const indexOfFirstMeme = indexOfLastMeme - memesPerPage;
+    setSlicedMemes(availableMemes.slice(indexOfFirstMeme, indexOfLastMeme));
   };
 
   React.useEffect(() => {
-    setSlicedMemes(memes.slice(0, memesPerPage));
-  }, []);
+    if (chosenMemes === 'regular') {
+      setSlicedMemes(memes.slice(0, memesPerPage));
+      setAvailableMemes(memes);
+    } else if (chosenMemes === 'top') {
+      const topMemes = memes.filter(meme => meme.upvotes - meme.downvotes > 5);
+      setAvailableMemes(topMemes);
+      setSlicedMemes(topMemes.slice(0, memesPerPage));
+    }
+  }, [chosenMemes]);
   React.useEffect(() => {
     setPage(+pageNumber);
   }, [pageNumber]);
-
-  React.useEffect(() => {
-    const indexOfLastMeme = page * memesPerPage;
-    const indexOfFirstMeme = indexOfLastMeme - memesPerPage;
-    setSlicedMemes(memes.slice(indexOfFirstMeme, indexOfLastMeme));
-  }, [page]);
 
   return (
     <MemesContainer>
@@ -41,7 +47,7 @@ const AllMemes: React.FC<AllMemesProps> = () => {
       <Pagination
         page={page}
         changePage={changePage}
-        totalPages={Math.ceil(memes.length / memesPerPage)}
+        totalPages={Math.ceil(availableMemes.length / memesPerPage)}
       />
     </MemesContainer>
   );

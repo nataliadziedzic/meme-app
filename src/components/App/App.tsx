@@ -21,7 +21,7 @@ const App: React.FC = () => {
             <Switch>
               <Route
                 exact
-                path='/regular/page/:pageNumber'
+                path='/:chosenMemes/page/:pageNumber'
                 component={AllMemes}
               />
             </Switch>

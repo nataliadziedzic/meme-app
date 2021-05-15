@@ -31,7 +31,7 @@ export const memes: MemesArr = [
   {
     title: 'Sleep',
     upvotes: 9,
-    downvotes: 1,
+    downvotes: 4,
     img: sleep,
   },
   {

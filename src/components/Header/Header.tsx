@@ -27,7 +27,7 @@ const Header: React.FC<HeaderProps> = () => {
                     <h1 className='appName navText'>bamboozled</h1>
                   </Logo>
                 </Link>
-                <NavLink className='navText' to='/hot'>
+                <NavLink className='navText' to='/top/page/1'>
                   Heckin good ones
                 </NavLink>
               </>

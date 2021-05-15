@@ -8,7 +8,7 @@ export interface HamburgerMenuProps {}
 
 const HamburgerMenu: React.FC<HamburgerMenuProps> = () => {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-  const links = ['/regular/page/1', '/hot'];
+  const links = ['/regular/page/1', '/top/page/1'];
   const title = ['All memes', 'Heckin good ones'];
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
