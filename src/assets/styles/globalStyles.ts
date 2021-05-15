@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   *{
@@ -8,15 +8,15 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     text-decoration: none;
-    color: ${ props => props.theme.font};
+    color: ${props => props.theme.font};
   }
   html {
     font-size: 16px;
   }
   body{
     min-height: 100vh;
-    width: 100vw;
-    background-color: ${ props => props.theme.body};
+    width: 100%;
+    background-color: ${props => props.theme.body};
   }
   .App, #root {
     height: 100%;
@@ -30,4 +30,4 @@ export const GlobalStyle = createGlobalStyle`
     color: inherit;
     border: none;
   }
-`
+`;
