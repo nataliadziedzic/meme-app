@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { SIZES } from './mediaQueries';
 
 export const GlobalStyle = createGlobalStyle`
   *{
@@ -11,7 +12,10 @@ export const GlobalStyle = createGlobalStyle`
     color: ${props => props.theme.font};
   }
   html {
-    font-size: 16px;
+    font-size: 14px;
+    @media only screen and ${SIZES.tablet} {
+      font-size: 16px;
+    }
   }
   body{
     min-height: 100vh;

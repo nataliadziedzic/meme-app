@@ -28,12 +28,7 @@ export const StyledToggleButtonGroup = styled(ToggleButtonGroup)`
     }
   }
   .MuiToggleButton-sizeSmall {
-    padding: 3px;
-  }
-  @media only screen and ${SIZES.mobileS} {
-    .MuiToggleButton-sizeSmall {
-      padding: 4px;
-    }
+    padding: 4px;
   }
   @media only screen and ${SIZES.tablet} {
     right: 40px;

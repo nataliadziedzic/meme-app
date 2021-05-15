@@ -1,11 +1,12 @@
 import styled from 'styled-components';
+import { SIZES } from '../../../assets/styles/mediaQueries';
 
 export const Meme = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 500px;
+  width: 300px;
   margin: 56px auto 0;
   &:first-child {
     margin-top: 0;
@@ -16,6 +17,9 @@ export const Meme = styled.div`
     margin: 16px 0;
     font-size: 1.8rem;
     font-weight: 400;
+  }
+  @media only screen and ${SIZES.tablet} {
+    width: 500px;
   }
 `;
 export const VotesWrapper = styled.section`
