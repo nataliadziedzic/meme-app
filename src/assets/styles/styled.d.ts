@@ -3,7 +3,7 @@ import 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     body: string;
-    memesContainer: string;
     font: string;
+    memesContainer: string;
   }
 }

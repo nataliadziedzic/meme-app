@@ -1,7 +1,6 @@
 import * as React from 'react';
-import Pagination from '@material-ui/lab/Pagination';
 import SingleMeme from '../SingleMeme/SingleMeme';
-import { MemesContainer } from './AllMemes.style';
+import { MemesContainer, StyledPagination } from './AllMemes.style';
 import { memes } from '../../../data/memes';
 import { useHistory, useParams } from 'react-router';
 
@@ -38,7 +37,7 @@ const AllMemes: React.FC<AllMemesProps> = () => {
       {slicedMemes.map((meme, index) => (
         <SingleMeme key={index} meme={meme} />
       ))}
-      <Pagination
+      <StyledPagination
         page={page}
         onChange={(e, currentPage) => changePage(currentPage)}
         count={Math.ceil(memes.length / memesPerPage)}
