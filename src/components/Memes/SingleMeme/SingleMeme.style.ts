@@ -8,6 +8,8 @@ export const Meme = styled.div`
   justify-content: center;
   width: 300px;
   margin: 56px auto 0;
+  background: #173e55;
+  border-radius: 20px;
   &:first-child {
     margin-top: 0;
   }
@@ -15,8 +17,10 @@ export const Meme = styled.div`
   .title {
     width: 100%;
     margin: 16px 0;
+    padding: 0 16px;
     font-size: 1.8rem;
     font-weight: 400;
+    color: #fff;
   }
   @media only screen and ${SIZES.tablet} {
     width: 500px;
@@ -27,7 +31,7 @@ export const VotesWrapper = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 8px 24px;
+  padding: 16px 24px 8px;
   background-color: #173e55;
   color: #fff;
   * {
