@@ -8,6 +8,7 @@ import { lightTheme, darkTheme } from '../../assets/styles/theme';
 import Header from '../Header/Header';
 import AllMemes from '../Memes/AllMemes/AllMemes';
 import Home from '../Home/Home';
+import { Main } from './App.style';
 
 const App: React.FC = () => {
   const theme = useAppSelector(state => state.themeReducer);
@@ -17,8 +18,9 @@ const App: React.FC = () => {
       <StylesProvider injectFirst>
         <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
           <GlobalStyle />
-          <div className='App'>
-            <Header />
+          <Header />
+          <Main>
+            <div className='themeIcon' />
             <Switch>
               <Route exact path='/' component={Home} />
               <Route
@@ -27,7 +29,7 @@ const App: React.FC = () => {
                 component={AllMemes}
               />
             </Switch>
-          </div>
+          </Main>
         </ThemeProvider>
       </StylesProvider>
     </Router>

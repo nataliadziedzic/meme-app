@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { SIZES } from '../../assets/styles/mediaQueries';
 
 export const FormContainer = styled.div`
   position: relative;
@@ -12,8 +13,10 @@ export const FormContainer = styled.div`
   align-items: center;
   background-color: #fff;
   border-radius: 20px;
+  border: 3px solid black;
   h2 {
     color: #000;
+    text-align: center;
   }
   form {
     display: flex;
@@ -35,12 +38,33 @@ export const FormContainer = styled.div`
     min-width: 120px;
     margin: 24px;
   }
-  .dog {
+  .dog,
+  .cloud {
     position: absolute;
+    z-index: -1;
+    transform: translateY(-100%);
+  }
+  .cloud {
+    left: 90%;
+    top: -30px;
+    width: 250px;
+    left: 60%;
+    @media only screen and ${SIZES.laptop} {
+      left: 75%;
+    }
+  }
+  .dog {
+    width: 280px;
     top: 27px;
     left: 0;
-    z-index: -1;
-    width: 400px;
-    transform: translateY(-100%);
+    @media only screen and ${SIZES.tablet} {
+      width: 330px;
+    }
+    @media only screen and ${SIZES.laptop} {
+      width: 370px;
+    }
+    @media only screen and ${SIZES.laptopL} {
+      width: 400px;
+    }
   }
 `;

@@ -1,7 +1,10 @@
 import React from 'react';
+import Media from 'react-media';
 import { FormControl, Button, TextField } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
+import { SIZES } from '../../assets/styles/mediaQueries';
 import gratefulDog from '../../assets/images/home-doge-2.png';
+import cloud from '../../assets/images/cloud.png';
 import { FormContainer } from './AddMemeForm.style';
 
 export interface AddMemeFormProps {}
@@ -19,6 +22,11 @@ const AddMemeForm: React.FC<AddMemeFormProps> = () => {
   return (
     <FormContainer>
       <img src={gratefulDog} alt='Dog, shiba Inu' className='dog' />
+      <Media query={SIZES.tablet}>
+        {matches =>
+          matches && <img src={cloud} alt='Cloud' className='cloud' />
+        }
+      </Media>
       <h2>Here you can share it without logging in</h2>
       <form>
         <TextField
