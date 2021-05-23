@@ -34,7 +34,7 @@ export const GlobalStyle = createGlobalStyle`
     color: inherit;
     border: none;
   }
-  .MuiButton-label {
+  .MuiAlert-message, .MuiAlert-icon path, .MuiAlert-action path, .MuiButton-label {
     color: #fff;
   }
 `;
