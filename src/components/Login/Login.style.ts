@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 import { TextField } from '@material-ui/core';
 import milkyWay from '../../assets/images/milky-way.png';
+import { SIZES } from '../../assets/styles/mediaQueries';
 
 export const Box = styled.div`
-  width: 400px;
+  width: 300px;
   height: 600px;
   overflow: hidden;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 230px 370px;
-  margin-top: 100px;
+  margin-top: 16px;
   background-image: url(${milkyWay});
   background-position: center;
   background-repeat: no-repeat;
@@ -22,6 +23,16 @@ export const Box = styled.div`
     text-align: center;
     font-size: 1.9rem;
     margin: 16px 0;
+  }
+  @media only screen and ${SIZES.mobileS} {
+    width: 320px;
+  }
+  @media only screen and ${SIZES.mobileM} {
+    width: 350px;
+  }
+  @media only screen and ${SIZES.tablet} {
+    margin-top: 100px;
+    width: 400px;
   }
 `;
 export const LoginSection = styled.section`
