@@ -20,8 +20,8 @@ export const GlobalStyle = createGlobalStyle`
   body{
     min-height: 100vh;
     width: 100%;
-    background-color: ${props => props.theme.body};
-  }
+    background: ${props => props.theme.body};
+    }
   .App, #root {
     height: 100%;
     width: 100%;
@@ -33,5 +33,8 @@ export const GlobalStyle = createGlobalStyle`
   a {
     color: inherit;
     border: none;
+  }
+  .MuiButton-label {
+    color: #fff;
   }
 `;
