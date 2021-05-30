@@ -5,5 +5,6 @@ declare module 'styled-components' {
     body: string;
     font: string;
     memesContainer: string;
+    paginationButton: string;
   }
 }

@@ -20,7 +20,6 @@ const App: React.FC = () => {
           <GlobalStyle />
           <Header />
           <Main>
-            <div className='themeIcon' />
             <Switch>
               <Route exact path='/' component={Home} />
               <Route

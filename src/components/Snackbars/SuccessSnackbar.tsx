@@ -3,27 +3,27 @@ import MuiAlert from '@material-ui/lab/Alert';
 import { Snackbar } from '@material-ui/core';
 import { notificationTime } from '../../variables';
 
-export interface ErrorSnackbarProps {
+export interface SuccessSnackbarProps {
   message: string;
-  error: boolean;
-  setError: (arg: boolean) => void;
+  success: boolean;
+  setSuccess: (arg: boolean) => void;
 }
 
-const ErrorSnackbar: React.FC<ErrorSnackbarProps> = ({
+const SuccessSnackbar: React.FC<SuccessSnackbarProps> = ({
   message,
-  error,
-  setError,
+  success,
+  setSuccess,
 }) => {
   return (
     <div>
       <Snackbar
-        open={error}
+        open={success}
         autoHideDuration={notificationTime}
-        onClose={() => setError(false)}
+        onClose={() => setSuccess(false)}
       >
         <MuiAlert
-          onClose={() => setError(false)}
-          severity='error'
+          onClose={() => setSuccess(false)}
+          severity='success'
           elevation={6}
           variant='filled'
         >
@@ -34,4 +34,4 @@ const ErrorSnackbar: React.FC<ErrorSnackbarProps> = ({
   );
 };
 
-export default ErrorSnackbar;
+export default SuccessSnackbar;

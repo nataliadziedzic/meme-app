@@ -6,7 +6,7 @@ export const StyledHeader = styled.header`
   width: 100%;
   padding: 16px 24px;
   background-color: #173e55;
-  margin-bottom: 42px;
+  margin-bottom: 24px;
   * {
     color: #fff;
   }
@@ -58,13 +58,13 @@ export const StyledHeader = styled.header`
 `;
 export const Logo = styled.div`
   overflow: hidden;
-  width: 140px;
+  width: 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   .appName {
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 100;
     font-style: italic;
     text-transform: uppercase;
@@ -74,13 +74,10 @@ export const Logo = styled.div`
   @media only screen and ${SIZES.mobileL} {
     width: 160px;
   }
-  @media only screen and ${SIZES.tablet} {
-    width: 200px;
-  }
   @media only screen and ${SIZES.laptop} {
-    width: 250px;
+    width: 220px;
     .appName {
-      font-size: 32px;
+      font-size: 24px;
     }
   }
 `;

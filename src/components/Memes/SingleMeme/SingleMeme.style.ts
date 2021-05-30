@@ -34,6 +34,7 @@ export const VotesWrapper = styled.section`
   padding: 16px 24px 8px;
   background-color: #173e55;
   color: #fff;
+  border-radius: 0 0 20px 20px;
   * {
     color: inherit;
   }

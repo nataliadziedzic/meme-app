@@ -10,7 +10,7 @@ export const StyledPagination = styled(Pagination)`
     color: ${props => props.theme.font};
   }
   .MuiPaginationItem-page.Mui-selected {
-    background-color: #173e55;
+    background-color: ${props => props.theme.paginationButton}
     color: #fff;
   }
 `;

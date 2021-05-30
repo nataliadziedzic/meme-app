@@ -1,18 +1,25 @@
 import * as React from 'react';
 import { useHistory, useParams } from 'react-router';
-import { memes } from '../../../data/memes';
+import { getMemes } from '../../../api/api';
 import SingleMeme from '../SingleMeme/SingleMeme';
 import Pagination from '../../Pagination/Pagination';
 import { MemesContainer } from './AllMemes.style';
 
-export interface AllMemesProps {}
+type MemeObject = {
+  title: string;
+  author: string;
+  image: string;
+  upvotes: number;
+  downvotes: number;
+  publicationDate: Date;
+};
 
-const AllMemes: React.FC<AllMemesProps> = () => {
+const AllMemes: React.FC = () => {
   const history = useHistory();
   const { pageNumber, chosenMemes } =
     useParams<{ pageNumber: string; chosenMemes: string }>();
-
   const containerRef = React.useRef<HTMLElement | null>(null);
+  const [memes, setMemes] = React.useState<MemeObject[]>([]);
   const [availableMemes, setAvailableMemes] = React.useState<typeof memes>([]);
   const [slicedMemes, setSlicedMemes] = React.useState<typeof memes>([]);
   const [page, setPage] = React.useState<number>(1);
@@ -35,7 +42,7 @@ const AllMemes: React.FC<AllMemesProps> = () => {
       const topMemes = memes.filter(meme => meme.upvotes - meme.downvotes > 5);
       setAvailableMemes(topMemes);
     }
-  }, [chosenMemes]);
+  }, [chosenMemes, memes]);
 
   React.useEffect(() => {
     setPage(+pageNumber);
@@ -44,6 +51,10 @@ const AllMemes: React.FC<AllMemesProps> = () => {
     availableMemes.length &&
       setSlicedMemes(availableMemes.slice(indexOfFirstMeme, indexOfLastMeme));
   }, [availableMemes, pageNumber, indexOfFirstMeme, indexOfLastMeme]);
+
+  React.useEffect(() => {
+    getMemes(setMemes);
+  }, []);
 
   return (
     <MemesContainer ref={containerRef}>

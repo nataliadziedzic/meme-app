@@ -1,23 +1,23 @@
 import * as React from 'react';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import ThumbDownIcon from '@material-ui/icons/ThumbDown';
+import { API_PATH } from '../../../variables';
 import { Meme, VotesWrapper } from './SingleMeme.style';
 
 export interface MemeObject {
   title: string;
   upvotes: number;
   downvotes: number;
-  img: string;
+  image: string;
 }
 export interface SingleMemeProps {
   meme: MemeObject;
 }
-
 const SingleMeme: React.FC<SingleMemeProps> = ({ meme }) => {
   return (
     <Meme>
       <h2 className='title'>{meme.title}</h2>
-      <img src={meme.img} alt='' />
+      <img src={`${API_PATH}${meme.image}`} alt='' />
       <VotesWrapper>
         <div className='button'>
           <ThumbUpAltIcon />

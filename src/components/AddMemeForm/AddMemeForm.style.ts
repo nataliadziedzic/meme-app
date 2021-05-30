@@ -14,6 +14,7 @@ export const FormContainer = styled.div`
   background-color: #fff;
   border-radius: 20px;
   border: 3px solid black;
+  box-shadow: 0 2px 12px black;
   h2 {
     color: #000;
     text-align: center;
@@ -24,19 +25,13 @@ export const FormContainer = styled.div`
     justify-content: center;
     width: 250px;
     margin: 0 auto;
-    .uploadImageBtn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      .MuiSvgIcon-root {
-        margin-left: 8px;
-      }
-    }
   }
   .MuiButton-root {
     min-width: 120px;
     margin: 24px;
+  }
+  .MuiButton-contained.Mui-disabled {
+    background-color: #3f51b58c;
   }
   .dog,
   .cloud {
@@ -65,6 +60,35 @@ export const FormContainer = styled.div`
     }
     @media only screen and ${SIZES.laptopL} {
       width: 400px;
+    }
+  }
+`;
+export const UploadButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .uploadButton {
+    padding: 0;
+  }
+  .uploadImageLabel,
+  .selectedImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .MuiSvgIcon-root {
+      margin-left: 8px;
+    }
+  }
+  .uploadImageLabel {
+    width: 100%;
+    height: 100%;
+    padding: 5px 15px;
+  }
+  .selectedImage {
+    font-size: 0.9rem;
+    .deleteButton {
+      cursor: pointer;
     }
   }
 `;

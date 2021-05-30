@@ -16,7 +16,7 @@ export const Box = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 20px;
-  box-shadow: 6px 2px 12px black;
+  box-shadow: 0 2px 12px black;
   border: 3px solid black;
   h2 {
     color: #006fb1;
@@ -33,6 +33,10 @@ export const Box = styled.div`
   @media only screen and ${SIZES.tablet} {
     margin-top: 100px;
     width: 400px;
+    box-shadow: 6px 2px 12px black;
+  }
+  @media only screen and ${SIZES.laptopL} {
+    margin-left: 200px;
   }
 `;
 export const LoginSection = styled.section`
