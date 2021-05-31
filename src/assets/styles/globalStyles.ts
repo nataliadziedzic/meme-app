@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-import { SIZES } from './mediaQueries';
+import { createGlobalStyle } from 'styled-components'
+import { SIZES } from './mediaQueries'
 
 export const GlobalStyle = createGlobalStyle`
   *{
@@ -34,7 +34,10 @@ export const GlobalStyle = createGlobalStyle`
     color: inherit;
     border: none;
   }
+  .button {
+    cursor: pointer;
+  }
   .MuiAlert-message, .MuiAlert-icon path, .MuiAlert-action path, .MuiButton-label {
     color: #fff;
   }
-`;
+`
