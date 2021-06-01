@@ -1,5 +1,5 @@
-import { Pagination } from '@material-ui/lab';
-import styled from 'styled-components';
+import { Pagination } from '@material-ui/lab'
+import styled from 'styled-components'
 
 export const StyledPagination = styled(Pagination)`
   .MuiPagination-ul {
@@ -10,7 +10,7 @@ export const StyledPagination = styled(Pagination)`
     color: ${props => props.theme.font};
   }
   .MuiPaginationItem-page.Mui-selected {
-    background-color: ${props => props.theme.paginationButton}
+    background-color: ${props => props.theme.paginationButton};
     color: #fff;
   }
-`;
+`

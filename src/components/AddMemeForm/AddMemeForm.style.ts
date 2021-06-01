@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { SIZES } from '../../assets/styles/mediaQueries';
+import styled from 'styled-components'
+import { SIZES } from '../../assets/styles/mediaQueries'
 
 export const FormContainer = styled.div`
   position: relative;
@@ -62,7 +62,7 @@ export const FormContainer = styled.div`
       width: 400px;
     }
   }
-`;
+`
 export const UploadButtonWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -76,8 +76,10 @@ export const UploadButtonWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #000;
     .MuiSvgIcon-root {
       margin-left: 8px;
+      fill: #000;
     }
   }
   .uploadImageLabel {
@@ -91,4 +93,4 @@ export const UploadButtonWrapper = styled.div`
       cursor: pointer;
     }
   }
-`;
+`
