@@ -17,17 +17,14 @@ type MemeObject = {
 
 const AllMemes: React.FC = () => {
   const history = useHistory()
-  const { pageNumber, chosenMemes } =
-    useParams<{ pageNumber: string; chosenMemes: string }>()
-  const containerRef = React.useRef<HTMLElement | null>(null)
+  const { pageNumber, chosenMemes } = useParams<{ pageNumber: string; chosenMemes: string }>()
+  const [loaded, setLoaded] = React.useState(false)
   const [memes, setMemes] = React.useState<MemeObject[]>([])
   const [availableMemes, setAvailableMemes] = React.useState<typeof memes>([])
   const [slicedMemes, setSlicedMemes] = React.useState<typeof memes>([])
-  const [page, setPage] = React.useState<number>(1)
+  const [page, setPage] = React.useState(1)
 
   const memesPerPage = 10
-  const indexOfLastMeme = +pageNumber * memesPerPage
-  const indexOfFirstMeme = indexOfLastMeme - memesPerPage
   const changePage = async (currentPage: number) => {
     if (page !== currentPage) {
       setSlicedMemes([])
@@ -48,21 +45,25 @@ const AllMemes: React.FC = () => {
   React.useEffect(() => {
     setPage(+pageNumber)
   }, [pageNumber])
-  React.useEffect(() => {
-    setSlicedMemes(availableMemes.slice(indexOfFirstMeme, indexOfLastMeme))
-    document.querySelector('#header')?.scrollIntoView({ behavior: 'smooth' })
-  }, [availableMemes, pageNumber, indexOfFirstMeme, indexOfLastMeme])
 
   React.useEffect(() => {
-    setMemes([])
-    getMemes(setMemes)
+    const indexOfLastMeme = +pageNumber * memesPerPage
+    const indexOfFirstMeme = indexOfLastMeme - memesPerPage
+    setSlicedMemes(availableMemes.slice(indexOfFirstMeme, indexOfLastMeme))
+    document.querySelector('#header')?.scrollIntoView({ behavior: 'smooth' })
+  }, [availableMemes, pageNumber])
+
+  React.useEffect(() => {
+    setLoaded(false)
+    getMemes(setMemes, setLoaded)
   }, [chosenMemes])
 
   return (
-    <MemesContainer ref={containerRef}>
-      {availableMemes.length === 0 ? (
+    <MemesContainer>
+      {loaded && availableMemes.length === 0 && (
         <h2 className='heading'>Sorry, no memes here yet :( </h2>
-      ) : (
+      )}
+      {loaded && availableMemes.length > 0 && (
         <>
           {slicedMemes.map((meme, index) => (
             <SingleMeme key={index} singleMeme={meme} />

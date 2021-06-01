@@ -1,17 +1,13 @@
-import * as React from 'react';
-import { StyledPagination } from './Pagination.style';
+import * as React from 'react'
+import { StyledPagination } from './Pagination.style'
 
 export interface PaginationProps {
-  page: number;
-  changePage: (currentPage: number) => void;
-  totalPages: number;
+  page: number
+  changePage: (currentPage: number) => void
+  totalPages: number
 }
 
-const Pagination: React.FC<PaginationProps> = ({
-  page,
-  changePage,
-  totalPages,
-}) => {
+const Pagination: React.FC<PaginationProps> = ({ page, changePage, totalPages }) => {
   return (
     <StyledPagination
       page={page}
@@ -19,7 +15,7 @@ const Pagination: React.FC<PaginationProps> = ({
       count={totalPages}
       shape='rounded'
     />
-  );
-};
+  )
+}
 
-export default Pagination;
+export default Pagination

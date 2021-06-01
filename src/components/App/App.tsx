@@ -11,6 +11,7 @@ import Home from '../Home/Home'
 import ErrorSnackbar from '../Snackbars/ErrorSnackbar'
 import WarningSnackbar from '../Snackbars/WarningSnackbar'
 import SuccessSnackbar from '../Snackbars/SuccessSnackbar'
+import Loader from '../Loader/Loader'
 import { Main } from './App.style'
 
 const App: React.FC = () => {
@@ -25,12 +26,9 @@ const App: React.FC = () => {
           <Main>
             <Switch>
               <Route exact path='/' component={Home} />
-              <Route
-                exact
-                path='/:chosenMemes/page/:pageNumber'
-                component={AllMemes}
-              />
+              <Route exact path='/:chosenMemes/page/:pageNumber' component={AllMemes} />
             </Switch>
+            <Loader />
             <ErrorSnackbar />
             <WarningSnackbar />
             <SuccessSnackbar />

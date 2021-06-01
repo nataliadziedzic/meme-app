@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { hideLoader, showLoader } from '../commonFunctions/handleLoader'
 import { API_PATH } from '../variables'
 
 const axiosInstance = axios.create({
@@ -9,6 +10,20 @@ const axiosInstanceForFiles = axios.create({
   baseURL: API_PATH,
   headers: { 'Content-Type': 'multipart/form-data' },
 })
+axiosInstance.interceptors.request.use(function (config) {
+  showLoader()
+  return config
+})
+axiosInstance.interceptors.response.use(
+  function (response) {
+    hideLoader()
+    return response
+  },
+  function (error) {
+    hideLoader()
+    return Promise.reject(error)
+  }
+)
 
 export const postImage = async (image: File) => {
   const formData = new FormData()
@@ -17,7 +32,7 @@ export const postImage = async (image: File) => {
     const response = await axiosInstanceForFiles.post('/images', formData)
     return response.data.url
   } catch (error) {
-    console.log(error)
+    console.log(error.message)
   }
 }
 
@@ -33,7 +48,7 @@ export const postMeme = async (
     await axiosInstance.post('/memes', meme)
     action()
   } catch (error) {
-    console.log(error)
+    console.log(error.message)
   }
 }
 export const updateMeme = async (
@@ -62,15 +77,19 @@ export const updateMeme = async (
       image: meme.image,
     })
   } catch (error) {
-    console.log(error)
+    console.log(error.message)
   }
 }
 
-export const getMemes = async (action: (memes: []) => void) => {
+export const getMemes = async (
+  action: (memes: []) => void,
+  setLoaded: (loaded: boolean) => void
+) => {
   try {
     const response = await axiosInstance.get('/memes')
     action(response.data.reverse())
+    setLoaded(true)
   } catch (error) {
-    console.log(error)
+    console.log(error.message)
   }
 }
