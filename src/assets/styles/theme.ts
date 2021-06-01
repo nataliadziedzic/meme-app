@@ -1,3 +1,4 @@
+export type ThemeType = typeof lightTheme
 export const lightTheme = {
   body: '#fff',
   font: '#000',

@@ -1,10 +1,6 @@
-import 'styled-components';
+import {} from 'styled-components'
+import { ThemeType } from './theme'
 
 declare module 'styled-components' {
-  export interface DefaultTheme {
-    body: string;
-    font: string;
-    memesContainer: string;
-    paginationButton: string;
-  }
+  export interface DefaultTheme extends ThemeType {}
 }
