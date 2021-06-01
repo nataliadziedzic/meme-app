@@ -3,7 +3,7 @@ import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt'
 import ThumbDownIcon from '@material-ui/icons/ThumbDown'
 import { updateMeme } from '../../../api/api'
 import { API_PATH } from '../../../variables'
-import WarningSnackbar from '../../Snackbars/WarningSnackbar'
+import { dispatchWarning } from '../../../commonFunctions/handleSnackbars'
 import { Meme, VotesWrapper } from './SingleMeme.style'
 
 export interface MemeObject {
@@ -22,7 +22,6 @@ const SingleMeme: React.FC<SingleMemeProps> = ({ singleMeme }) => {
     SUBSTRACT,
   }
   const [meme, setMeme] = React.useState(singleMeme)
-  const [warning, setWarning] = React.useState(false)
 
   const vote = (action: VotingAction) => {
     let dataToUpdate
@@ -39,7 +38,7 @@ const SingleMeme: React.FC<SingleMemeProps> = ({ singleMeme }) => {
       votedMemes.push(meme._id)
       localStorage.setItem('votedMemes', JSON.stringify(votedMemes))
     } else {
-      setWarning(true)
+      dispatchWarning("It looks like you've already voted for this meme.")
     }
   }
 
@@ -50,28 +49,21 @@ const SingleMeme: React.FC<SingleMemeProps> = ({ singleMeme }) => {
   }, [])
 
   return (
-    <>
-      <Meme>
-        <h2 className='title'>{meme.title}</h2>
-        <img src={`${API_PATH}${meme.image}`} alt='' />
-        <VotesWrapper>
-          <div className='button' onClick={() => vote(VotingAction.ADD)}>
-            <ThumbUpAltIcon />
-            <span className='votesNumber'>{meme.upvotes}</span>
-          </div>
-          <span className='text'>Vote!</span>
-          <div className='button' onClick={() => vote(VotingAction.SUBSTRACT)}>
-            <ThumbDownIcon />
-            <span className='votesNumber'>{meme.downvotes}</span>
-          </div>
-        </VotesWrapper>
-      </Meme>
-      <WarningSnackbar
-        warning={warning}
-        setWarning={setWarning}
-        message="It looks like you've already voted for this meme."
-      />
-    </>
+    <Meme>
+      <h2 className='title'>{meme.title}</h2>
+      <img src={`${API_PATH}${meme.image}`} alt='' />
+      <VotesWrapper>
+        <div className='button' onClick={() => vote(VotingAction.ADD)}>
+          <ThumbUpAltIcon />
+          <span className='votesNumber'>{meme.upvotes}</span>
+        </div>
+        <span className='text'>Vote!</span>
+        <div className='button' onClick={() => vote(VotingAction.SUBSTRACT)}>
+          <ThumbDownIcon />
+          <span className='votesNumber'>{meme.downvotes}</span>
+        </div>
+      </VotesWrapper>
+    </Meme>
   )
 }
 

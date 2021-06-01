@@ -2,20 +2,25 @@ import React from 'react'
 import MuiAlert from '@material-ui/lab/Alert'
 import { Snackbar } from '@material-ui/core'
 import { notificationTime } from '../../variables'
+import { displayMessage, isCustomEvent } from '../../commonFunctions/handleSnackbars'
 
-export interface WarningSnackbarProps {
-  message: string
-  warning: boolean
-  setWarning: (arg: boolean) => void
-}
+const WarningSnackbar: React.FC = () => {
+  const [warning, setWarning] = React.useState(false)
+  const [message, setMessage] = React.useState('')
 
-const WarningSnackbar: React.FC<WarningSnackbarProps> = ({
-  message,
-  warning,
-  setWarning,
-}) => {
+  React.useEffect(() => {
+    const warningSnackbar = document.querySelector('.warningSnackbar')
+    if (warningSnackbar) {
+      warningSnackbar.addEventListener('warning', (event: Event) => {
+        if (isCustomEvent(event)) {
+          displayMessage(event, setWarning, setMessage)
+        }
+      })
+    }
+  }, [])
+
   return (
-    <div>
+    <div className='warningSnackbar'>
       <Snackbar
         open={warning}
         autoHideDuration={notificationTime}

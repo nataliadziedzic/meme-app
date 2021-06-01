@@ -1,21 +1,26 @@
-import React from 'react';
-import MuiAlert from '@material-ui/lab/Alert';
-import { Snackbar } from '@material-ui/core';
-import { notificationTime } from '../../variables';
+import React from 'react'
+import MuiAlert from '@material-ui/lab/Alert'
+import { Snackbar } from '@material-ui/core'
+import { notificationTime } from '../../variables'
+import { displayMessage, isCustomEvent } from '../../commonFunctions/handleSnackbars'
 
-export interface SuccessSnackbarProps {
-  message: string;
-  success: boolean;
-  setSuccess: (arg: boolean) => void;
-}
+const SuccessSnackbar: React.FC = () => {
+  const [success, setSuccess] = React.useState(false)
+  const [message, setMessage] = React.useState('')
 
-const SuccessSnackbar: React.FC<SuccessSnackbarProps> = ({
-  message,
-  success,
-  setSuccess,
-}) => {
+  React.useEffect(() => {
+    const successSnackbar = document.querySelector('.successSnackbar')
+    if (successSnackbar) {
+      successSnackbar.addEventListener('success', (event: Event) => {
+        if (isCustomEvent(event)) {
+          displayMessage(event, setSuccess, setMessage)
+        }
+      })
+    }
+  }, [])
+
   return (
-    <div>
+    <div className='successSnackbar'>
       <Snackbar
         open={success}
         autoHideDuration={notificationTime}
@@ -31,7 +36,7 @@ const SuccessSnackbar: React.FC<SuccessSnackbarProps> = ({
         </MuiAlert>
       </Snackbar>
     </div>
-  );
-};
+  )
+}
 
-export default SuccessSnackbar;
+export default SuccessSnackbar
