@@ -28,11 +28,12 @@ const AllMemes: React.FC = () => {
   const memesPerPage = 10
   const indexOfLastMeme = +pageNumber * memesPerPage
   const indexOfFirstMeme = indexOfLastMeme - memesPerPage
-  const changePage = (currentPage: number) => {
-    history.push(`${currentPage}`)
-    setPage(currentPage)
-    setSlicedMemes(availableMemes.slice(indexOfFirstMeme, indexOfLastMeme))
-    containerRef.current?.scrollIntoView({ behavior: 'smooth' })
+  const changePage = async (currentPage: number) => {
+    if (page !== currentPage) {
+      setSlicedMemes([])
+      history.push(`${currentPage}`)
+      setPage(currentPage)
+    }
   }
 
   React.useEffect(() => {
@@ -40,7 +41,6 @@ const AllMemes: React.FC = () => {
       setAvailableMemes(memes)
     } else if (chosenMemes === 'top') {
       const topMemes = memes.filter(meme => meme.upvotes - meme.downvotes >= 5)
-      console.log('here', topMemes)
       setAvailableMemes(topMemes)
     }
   }, [chosenMemes, memes])
@@ -50,6 +50,7 @@ const AllMemes: React.FC = () => {
   }, [pageNumber])
   React.useEffect(() => {
     setSlicedMemes(availableMemes.slice(indexOfFirstMeme, indexOfLastMeme))
+    document.querySelector('#header')?.scrollIntoView({ behavior: 'smooth' })
   }, [availableMemes, pageNumber, indexOfFirstMeme, indexOfLastMeme])
 
   React.useEffect(() => {
@@ -59,14 +60,20 @@ const AllMemes: React.FC = () => {
 
   return (
     <MemesContainer ref={containerRef}>
-      {slicedMemes.map((meme, index) => (
-        <SingleMeme key={index} singleMeme={meme} />
-      ))}
-      <Pagination
-        page={page}
-        changePage={changePage}
-        totalPages={Math.ceil(availableMemes.length / memesPerPage)}
-      />
+      {availableMemes.length === 0 ? (
+        <h2 className='heading'>Sorry, no memes here yet :( </h2>
+      ) : (
+        <>
+          {slicedMemes.map((meme, index) => (
+            <SingleMeme key={index} singleMeme={meme} />
+          ))}
+          <Pagination
+            page={page}
+            changePage={changePage}
+            totalPages={Math.ceil(availableMemes.length / memesPerPage)}
+          />
+        </>
+      )}
     </MemesContainer>
   )
 }

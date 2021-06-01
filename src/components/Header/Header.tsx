@@ -1,17 +1,17 @@
-import * as React from 'react';
-import { NavLink, Link } from 'react-router-dom';
-import Media from 'react-media';
-import logo from '../../assets/images/header-logo.png';
-import { StyledHeader, Logo } from './Header.style';
-import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
-import { SIZES } from '../../assets/styles/mediaQueries';
-import HamburgerMenu from './HamburgerMenu/HamburgerMenu';
+import * as React from 'react'
+import { NavLink, Link } from 'react-router-dom'
+import Media from 'react-media'
+import logo from '../../assets/images/header-logo.png'
+import { StyledHeader, Logo } from './Header.style'
+import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher'
+import { SIZES } from '../../assets/styles/mediaQueries'
+import HamburgerMenu from './HamburgerMenu/HamburgerMenu'
 
 export interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {
   return (
-    <StyledHeader>
+    <StyledHeader id='header'>
       <ThemeSwitcher />
       <nav role='navigation'>
         <Media query={SIZES.laptop}>
@@ -46,7 +46,7 @@ const Header: React.FC<HeaderProps> = () => {
         </Media>
       </nav>
     </StyledHeader>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
