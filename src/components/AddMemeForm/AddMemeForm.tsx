@@ -43,16 +43,6 @@ const AddMemeForm: React.FC = () => {
 
   return (
     <FormContainer>
-      {/* <Media query={SIZES.tablet}>
-        {matches =>
-          matches && (
-            <>
-              <img src={cloud} alt='Cloud' className='cloud' />
-              <img src={gratefulDog} alt='Dog, shiba Inu' className='dog' />
-            </>
-          )
-        }
-      </Media> */}
       <h2>Here you can share memes without logging in!</h2>
       <form>
         <TextField

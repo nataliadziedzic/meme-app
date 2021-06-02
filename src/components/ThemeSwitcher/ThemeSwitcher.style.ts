@@ -5,7 +5,7 @@ import { SIZES } from '../../assets/styles/mediaQueries'
 export const StyledToggleButtonGroup = styled(ToggleButtonGroup)`
   margin: 0 auto;
   .MuiToggleButton-root {
-    background-color: #cbcbcb30;
+    background-color: #4646466b;
     border-radius: 50%;
     transition: 0.3s;
     border: none;
@@ -14,7 +14,7 @@ export const StyledToggleButtonGroup = styled(ToggleButtonGroup)`
       margin-right: 0;
     }
     &:hover {
-      background-color: #ffffff5c;
+      background-color: #515151d1;
     }
     path {
       color: #fff;

@@ -1,54 +1,22 @@
 # Meme App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live demo: [Bamboozled](https://bamboozled-memes.herokuapp.com/)
 
-## Getting started
+## Description
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+> Frontend for application which allows you to see all uploaded memes, vote for them and add your own. <br/>Dark and light theme available. <br /> [See backend](https://github.com/nataliadziedzic/meme-app-backend)
 
-### Prerequisites
-
-You need to have installed `npm` or `yarn`
-
-### Installing
-
-First of all clone the repository to your local machine.
-
-Check if you have `node` and `npm` installed. Run this command in your terminal:
-
-```
-node -v
-```
-
-To confirm that you have npm installed you can run this command in your terminal:
-
-```
-npm -v
-```
-
-If you checked your node and npm run a development server with:
-
-```
-npm start
-```
-
-Browser will automatically open `localhost:3000/`
-
-### Deployment
-
-To deploy application run:
-
-```
-npm run deploy
-```
-
-This will start a build process and push the production version to the `gh-pages` branch
+![](src\assets\images\app-preview.png)
 
 ## Built With
 
-- [Create React App](https://github.com/facebook/create-react-app)
-- [React-Router](https://github.com/ReactTraining/react-router)
-- [styled-components](https://www.styled-components.com/)
+- [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
+- [TypeScript](https://www.typescriptlang.org/) - A strict syntactical superset of JavaScript and adds optional static typing to the language.
+- [React-Router](https://github.com/ReactTraining/react-router) - Declarative routing for React.
+- [Axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js.
+- [Redux](https://redux.js.org/) - A Predictable State Container for JS Apps.
+- [styled-components](https://www.styled-components.com/) - CSS-in-JS approach for styling React components.
+- [Material-UI](https://www.styled-components.com/) - React components for faster and easier web development.
 
 ## License
 
