@@ -6,7 +6,7 @@ Live demo: [Bamboozled](https://bamboozled-memes.herokuapp.com/)
 
 > Frontend for application which allows you to see all uploaded memes, vote for them and add your own. <br/>Dark and light theme available. <br /> [See backend](https://github.com/nataliadziedzic/meme-app-backend)
 
-![](src\assets\images\app-preview.png)
+![](https://raw.githubusercontent.com/nataliadziedzic/meme-app/main/src/assets/images/app-preview.png)
 
 ## Built With
 
