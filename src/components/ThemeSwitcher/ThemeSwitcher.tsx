@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import * as React from 'react'
 import { useDispatch } from 'react-redux'
 import { useAppSelector } from '../../redux/hooks'
@@ -18,8 +19,16 @@ const ThemeSwitcher: React.FC = () => {
     const newThemeValue = newTheme || theme
     if (newThemeValue !== theme) {
       dispatch(setTheme(newThemeValue))
+      localStorage.setItem('theme', JSON.stringify(newThemeValue))
     }
   }
+  React.useEffect(() => {
+    if (localStorage.getItem('theme')) {
+      dispatch(setTheme(JSON.parse(localStorage.getItem('theme')!)))
+    } else {
+      localStorage.setItem('theme', JSON.stringify(theme))
+    }
+  }, [])
 
   return (
     <StyledToggleButtonGroup
