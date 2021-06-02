@@ -1,11 +1,12 @@
-import styled from 'styled-components';
-import { SIZES } from '../../assets/styles/mediaQueries';
+import styled from 'styled-components'
+import { SIZES } from '../../assets/styles/mediaQueries'
+import { colors } from '../../assets/styles/theme'
 
 export const StyledHeader = styled.header`
   position: relative;
   width: 100%;
   padding: 16px 24px;
-  background-color: #173e55;
+  background-color: ${colors.primary};
   margin-bottom: 24px;
   * {
     color: #fff;
@@ -55,7 +56,7 @@ export const StyledHeader = styled.header`
       transform: translate(-100%, -50%);
     }
   }
-`;
+`
 export const Logo = styled.div`
   overflow: hidden;
   width: 120px;
@@ -80,4 +81,4 @@ export const Logo = styled.div`
       font-size: 24px;
     }
   }
-`;
+`

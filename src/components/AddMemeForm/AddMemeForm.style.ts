@@ -3,7 +3,7 @@ import { SIZES } from '../../assets/styles/mediaQueries'
 
 export const FormContainer = styled.div`
   position: relative;
-  width: 90%;
+  width: 100%;
   max-width: 800px;
   padding: 32px;
   margin: 0 auto 40px;
@@ -12,6 +12,21 @@ export const FormContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #fff;
+  background-image: linear-gradient(
+    to right top,
+    #7ca5c9,
+    #9bb4d4,
+    #b6c4de,
+    #cfd4e7,
+    #e5e6f1,
+    #e7e8f1,
+    #e9e9f1,
+    #ebebf1,
+    #dadde7,
+    #c8cfdd,
+    #b5c2d2,
+    #a1b6c7
+  );
   border-radius: 20px;
   border: 3px solid black;
   box-shadow: 0 2px 12px black;
@@ -23,8 +38,11 @@ export const FormContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 250px;
+    width: 225px;
     margin: 0 auto;
+    @media only screen and ${SIZES.mobileS} {
+      width: 250px;
+    }
   }
   .MuiButton-root {
     min-width: 120px;
@@ -33,34 +51,14 @@ export const FormContainer = styled.div`
   .MuiButton-contained.Mui-disabled {
     background-color: #3f51b58c;
   }
-  .dog,
-  .cloud {
-    position: absolute;
-    z-index: -1;
-    transform: translateY(-100%);
+  @media only screen and ${SIZES.tablet} {
+    width: 400px;
+    height: 600px;
+    margin: 0;
   }
-  .cloud {
-    left: 90%;
-    top: -30px;
-    width: 250px;
-    left: 60%;
-    @media only screen and ${SIZES.laptop} {
-      left: 75%;
-    }
-  }
-  .dog {
-    width: 280px;
-    top: 27px;
-    left: 0;
-    @media only screen and ${SIZES.tablet} {
-      width: 330px;
-    }
-    @media only screen and ${SIZES.laptop} {
-      width: 370px;
-    }
-    @media only screen and ${SIZES.laptopL} {
-      width: 400px;
-    }
+  @media only screen and ${SIZES.laptopXL} {
+    width: 800px;
+    height: auto;
   }
 `
 export const UploadButtonWrapper = styled.div`

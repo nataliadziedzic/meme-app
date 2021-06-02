@@ -1,5 +1,6 @@
-import styled from 'styled-components';
-import { SIZES } from '../../../assets/styles/mediaQueries';
+import styled from 'styled-components'
+import { Menu } from '@material-ui/core'
+import { SIZES } from '../../../assets/styles/mediaQueries'
 
 export const MenuContainer = styled.div`
   justify-self: start;
@@ -9,4 +10,13 @@ export const MenuContainer = styled.div`
   @media only screen and ${SIZES.tablet} {
     justify-self: center;
   }
-`;
+`
+export const StyledMenu = styled(Menu)`
+  .MuiPaper-root {
+    background-color: ${props => props.theme.secondary};
+  }
+  .MuiTypography-root {
+    color: #fff;
+    text-align: center;
+  }
+`

@@ -1,49 +1,42 @@
-import styled from 'styled-components';
-import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
-import { SIZES } from '../../assets/styles/mediaQueries';
+import styled from 'styled-components'
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
+import { SIZES } from '../../assets/styles/mediaQueries'
 
 export const StyledToggleButtonGroup = styled(ToggleButtonGroup)`
-  position: absolute;
-  right: 24px;
-  top: 50%;
-  transform: translateY(-50%);
+  margin: 0 auto;
   .MuiToggleButton-root {
-    background-color: #ced1d8;
+    background-color: #cbcbcb30;
+    border-radius: 50%;
     transition: 0.3s;
-    &:hover {
-      background-color: #f4f4f4;
+    border: none;
+    margin-right: 4px;
+    &:last-child {
+      margin-right: 0;
     }
-    path {
-      color: #e09608;
-    }
-  }
-  .Mui-selected {
-    background-color: #6389ff;
-    cursor: default;
     &:hover {
-      background-color: #6389ff;
+      background-color: #ffffff5c;
     }
     path {
       color: #fff;
     }
   }
+  .Mui-selected {
+    background-color: #fff;
+    cursor: default;
+    &:hover {
+      background-color: #fff;
+    }
+    path {
+      color: #e09608;
+    }
+  }
   .MuiToggleButton-sizeSmall {
     padding: 4px;
   }
-  @media only screen and ${SIZES.tablet} {
-    right: 40px;
-    .MuiToggleButton-sizeSmall {
-      padding: 6px;
-    }
-  }
   @media only screen and ${SIZES.laptop} {
+    position: absolute;
     top: 16px;
     right: 16px;
     transform: translateY(0);
   }
-  @media only screen and ${SIZES.laptopL} {
-    .MuiToggleButton-sizeSmall {
-      padding: 7px;
-    }
-  }
-`;
+`

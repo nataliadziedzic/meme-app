@@ -5,5 +5,6 @@ export const SIZES = {
   tablet: `(min-width: 768px)`,
   laptop: `(min-width: 1024px)`,
   laptopL: `(min-width: 1200px)`,
+  laptopXL: `(min-width: 1400px)`,
   desktop: `(min-width: 1680px)`,
-};
+}

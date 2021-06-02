@@ -1,12 +1,8 @@
 import React from 'react'
-import Media from 'react-media'
 import { Button, TextField } from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search'
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline'
 import { postImage, postMeme } from '../../api/api'
-import { SIZES } from '../../assets/styles/mediaQueries'
-import gratefulDog from '../../assets/images/home-doge-2.png'
-import cloud from '../../assets/images/cloud.png'
 import { dispatchSuccess } from '../../commonFunctions/handleSnackbars'
 import { FormContainer, UploadButtonWrapper } from './AddMemeForm.style'
 
@@ -47,7 +43,7 @@ const AddMemeForm: React.FC = () => {
 
   return (
     <FormContainer>
-      <Media query={SIZES.tablet}>
+      {/* <Media query={SIZES.tablet}>
         {matches =>
           matches && (
             <>
@@ -56,7 +52,7 @@ const AddMemeForm: React.FC = () => {
             </>
           )
         }
-      </Media>
+      </Media> */}
       <h2>Here you can share memes without logging in!</h2>
       <form>
         <TextField

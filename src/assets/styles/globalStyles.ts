@@ -20,7 +20,7 @@ export const GlobalStyle = createGlobalStyle`
   body{
     min-height: 100vh;
     width: 100%;
-    background: ${props => props.theme.body};
+    background-image: ${props => props.theme.body};
     }
   .App, #root {
     height: 100%;

@@ -1,25 +1,25 @@
-import * as React from 'react';
-import { useDispatch } from 'react-redux';
-import { useAppSelector } from '../../redux/hooks';
-import { setTheme, ThemeType } from '../../redux/actions/themeActions';
-import { ToggleButton } from '@material-ui/lab';
-import WbSunnyIcon from '@material-ui/icons/WbSunny';
-import Brightness3Icon from '@material-ui/icons/Brightness3';
-import { StyledToggleButtonGroup } from './ThemeSwitcher.style';
+import * as React from 'react'
+import { useDispatch } from 'react-redux'
+import { useAppSelector } from '../../redux/hooks'
+import { setTheme, ThemeType } from '../../redux/actions/themeActions'
+import { ToggleButton } from '@material-ui/lab'
+import WbSunnyIcon from '@material-ui/icons/WbSunny'
+import Brightness3Icon from '@material-ui/icons/Brightness3'
+import { StyledToggleButtonGroup } from './ThemeSwitcher.style'
 
 const ThemeSwitcher: React.FC = () => {
-  const theme = useAppSelector(state => state.themeReducer);
-  const dispatch = useDispatch();
+  const theme = useAppSelector(state => state.themeReducer)
+  const dispatch = useDispatch()
 
   const selectTheme = (
     event: React.MouseEvent<HTMLElement, MouseEvent>,
     newTheme: ThemeType
   ): void => {
-    const newThemeValue = newTheme || theme;
+    const newThemeValue = newTheme || theme
     if (newThemeValue !== theme) {
-      dispatch(setTheme(newThemeValue));
+      dispatch(setTheme(newThemeValue))
     }
-  };
+  }
 
   return (
     <StyledToggleButtonGroup
@@ -36,7 +36,7 @@ const ThemeSwitcher: React.FC = () => {
         <WbSunnyIcon fontSize='small' />
       </ToggleButton>
     </StyledToggleButtonGroup>
-  );
-};
+  )
+}
 
-export default ThemeSwitcher;
+export default ThemeSwitcher

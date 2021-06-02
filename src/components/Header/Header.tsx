@@ -12,12 +12,12 @@ export interface HeaderProps {}
 const Header: React.FC<HeaderProps> = () => {
   return (
     <StyledHeader id='header'>
-      <ThemeSwitcher />
       <nav role='navigation'>
         <Media query={SIZES.laptop}>
           {matches =>
             matches ? (
               <>
+                <ThemeSwitcher />
                 <NavLink className='navText' to='/regular/page/1'>
                   All memes
                 </NavLink>
