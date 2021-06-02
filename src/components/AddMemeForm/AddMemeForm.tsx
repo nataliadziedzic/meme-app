@@ -15,21 +15,28 @@ const AddMemeForm: React.FC = () => {
 
   const uploadFile = async (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!event.target.files) return
-    setFile(event.target!.files[0]!)
-    setFileName(event.target.files[0].name)
+    else if (event.target.files[0]) {
+      setFile(event.target.files[0])
+      setFileName(event.target.files[0].name)
+    }
   }
   const addMeme = async () => {
-    const url: string = await postImage(file!)
-    const newMeme = {
-      author,
-      title,
-      image: url,
+    let url: string | null = null
+    if (file) {
+      url = await postImage(file)
     }
-    postMeme(newMeme, () => dispatchSuccess('Thank you! Your meme has been added!'))
-    setAuthor('')
-    setTitle('')
-    setFile(null)
-    setFileName('')
+    if (url) {
+      const newMeme = {
+        author,
+        title,
+        image: url,
+      }
+      postMeme(newMeme, () => dispatchSuccess('Thank you! Your meme has been added!'))
+      setAuthor('')
+      setTitle('')
+      setFile(null)
+      setFileName('')
+    }
   }
   React.useEffect(() => {
     if (author.length && title.length && file) {
