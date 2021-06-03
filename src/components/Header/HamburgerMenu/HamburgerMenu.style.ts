@@ -19,4 +19,9 @@ export const StyledMenu = styled(Menu)`
     color: #fff;
     text-align: center;
   }
+  .active {
+    li {
+      background-color: rgba(242, 239, 239, 0.21);
+    }
+  }
 `

@@ -32,7 +32,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = () => {
         onClose={handleClose}
       >
         {links.map((link, index) => (
-          <NavLink to={link} key={index}>
+          <NavLink to={link} key={index} onClick={handleClose}>
             <MenuItem className='listItem'>
               <ListItemText primary={title[index]} />
             </MenuItem>
