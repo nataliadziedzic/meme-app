@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { SIZES } from '../../../assets/styles/mediaQueries'
-import { colors } from '../../../assets/styles/theme'
 
 export const Meme = styled.div`
   display: flex;
